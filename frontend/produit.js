@@ -23,13 +23,7 @@ const fetchTeddy = fetch (apiURL + id)
 
     // Instructions d'ajout du Teddy au Panier 
 
-    function countCartItem( ){
-
-        // Counter les objets du cart
-
-
-        // afficher le nombre d'objet dans l'élement html
-    }
+   
     function addToCart(event) {
         event.preventDefault()
 
@@ -63,15 +57,15 @@ const fetchTeddy = fetch (apiURL + id)
             teddy.teddyQuantity++
         }
 
-        
-                
+      
+
         // On traduit/stringify le contenu de cartTeddies et on l'ajoute au localStorage  "teddiesInCart" 
         localStorage.setItem("cartTeddies", JSON.stringify(cartTeddies)); 
+
+        countCartItems();
         
         window.confirm(selectedTeddy.teddyName + " " + selectedTeddy.teddyColor + ' a bien été ajouté à votre panier! Souhaitez-vous continuer vos achats? ')
-        console.log(cartTeddies)
-        console.log("hello!");
-        countCartItem()
+    
     }
 
 // Lancement de la fonction fetchTeddy
@@ -129,6 +123,7 @@ fetchTeddy.then(response => {
     //Ecoute de l'évènement sur le bouton
     btnPanier.addEventListener("click", addToCart)
 
+    countCartItems();
 
     // Mise en page des éléments
     container.appendChild(card);
@@ -140,7 +135,7 @@ fetchTeddy.then(response => {
     card.appendChild(btnPanier);
 });
 
-countCartItem()
+
 
 
 
