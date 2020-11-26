@@ -56,9 +56,13 @@ request.onload = function () {
     errorMessage.textContent = `Mais, où est passé cet ourson ?`;
     app.appendChild(errorMessage);
   }
+  
+  countCartItems();
 }
 
 request.send();
+
+
 
 
 

@@ -103,7 +103,7 @@ fetchTeddy.then(response => {
     select.id = 'choixCouleur';
     label.appendChild(select);
   
-            // Dropdown : Récupération des couleurs du Teddy
+    // Dropdown : Récupération des couleurs du Teddy
     const colors = teddy.colors    
                          
             // Dropdown : L'instruction for...of va créer une boucle Array qui parcourt un objet itérable (l'array des couleurs) et va éxecuter des instructions pour la valeur de chaque propriété.
