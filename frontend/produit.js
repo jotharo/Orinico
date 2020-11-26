@@ -34,6 +34,7 @@ const fetchTeddy = fetch (apiURL + id)
             teddyColor: select.value,
             teddyQuantity: 1,
             teddyPrice: currentTeddy.price / 100,
+            teddyImage : currentTeddy.imageUrl,
         }
 
         // Variable - On créé un localStorage teddiesInCart ou un array vide si null  >>>>LE PROBLEME EST LA ???
