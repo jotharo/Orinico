@@ -20,6 +20,7 @@ function getCartTeddies() {
 let cartTeddies = getCartTeddies()
 
 countCartItems()
+showMyForm()
 
 //Etape IF -Si le panier est vide > On affiche " Votre panier est vide "
 if (cartTeddies == undefined || cartTeddies.length === 0) {
@@ -44,7 +45,7 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
 
     function deleteCart(event) {
         event.preventDefault();
-        localStorage.clear()
+        localStorage.clear()    
         alert('Votre panier est vide !')
         location.reload();
     }// Fin de la fonction deleteCart
@@ -53,6 +54,25 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
 
     // Création HTML du bouton deleteAll
     app.appendChild(btnDeleteAll);
+
+    //AFFICHAGE DU TOTAL DU PANIER 
+
+    // Variable où l'on va stocker le prix total 
+    var sum = null;   
+  
+    // The JavaScript Array.prototype specifies a built-in method called
+    cartTeddies.forEach(function(value){
+    sum += value.teddyQuantity*value.teddyPrice;
+    });
+
+    console.log(sum);
+
+    const totalPrice = document.createElement('p');
+    totalPrice.textContent = "Prix total : " + sum + "$";
+
+    // Création HTML de la div totalPrice
+    app.appendChild(totalPrice);
+
 
     //AFFICHAGE DU CONTENU DU PANIER
 
@@ -114,7 +134,100 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
     })// Fin de l'affichage du contenu du panier
 } // Fin de la boucle else et de la partie 1 Affichage du panier
 
+//Valider panier et apparition/affichage du formulaire ? Si possible, sinon tout sur la même page 
+  // 1 - si panier vide : message d'alerte votre panier est vide
+  // 2 - si panier ok : message de confirmation : veuillez remplir le form suivant ?
+
+  // Création de la fonction confirmCart > Qui cache le contenu du panier et fait apparaitre le formulaire
+
+ 
+
+
 // 2 - FORMULAIRE DE COMMANDE
 
+// AFFICHAGE DU FORMULAIRE
 
-     
+//Fonction showMyForm > Va rendre apparent le form seulement si il y a quelque chose dans le panier 
+
+function showMyForm() {  
+    var myForm = document.getElementById('formInfos');
+    if (cartTeddies == undefined || cartTeddies.length === 0) {
+    myForm.style.display = 'none';
+    } else {
+        myForm.style.display = 'block';
+    }
+}
+
+// RECUPERATION DES DONNEES DU FORMULAIRE + PANIER > ENVOI A L'API
+
+function sendData() {
+
+    // Envoi du totalPrice au localStorage
+    localStorage.setItem('totalPrice', totalPrice)
+    const storagePrice = localStorage.getItem('totalPrice')
+
+    // Récupération des informations client rentrées dans le formulaire
+    // Variable - Stockage des informations client dans une variable "contact"
+
+    let contact = {
+        firstName : document.getElementById('firstName').value,
+        lastName : document.getElementById('lastName').value,
+        address : document.getElementById('address').value,
+        city : document.getElementById('city').value,
+        email : document.getElementById('email').value
+    };
+
+    // Variable - Stockage des informations panier dans une variable "products" qui contient un tableau de string
+
+    let products = [ ]
+
+    // Récupération des ID des produits dans le panier > PUSH des ID dans l'array "products"
+
+    cartTeddies.forEach(cartTeddy =>{
+        products.push(cartTeddy.teddyId)
+    })
+
+    // Création d'un objet regroupant les informations de contact + contenu du panier >  à envoyer à l'API
+
+    const objet = {
+    contact,
+    products,
+    sum,
+    };
+
+    // ENVOI de l'objet à l'API
+
+      fetch('http://localhost:3000/api/teddies/order', {
+        method: "POST",// Adding method type 
+        body: JSON.stringify(objet),// Adding body or contents to send 
+        headers: {"Content-type": "application/json"}// Adding headers to the request 
+    })
+    .then(res => res.json()) // Converting to JSON
+    .then(
+        json => console.log(json),
+        localStorage.setItem('Order', objet.orderId),
+        console.log(objet.orderId),
+        //window.location = 'confirmation.html',
+        )
+    .catch(err => console.log(err))
+}// Fin de la fonction sendData
+
+
+// Validation de la commande > Envoi du formulaire au click du bouton submit du formulaire
+
+document.getElementById('formInfos').addEventListener('submit', function(e){
+    e.preventDefault();
+    sendData();
+})
+
+
+
+
+  
+
+
+  
+
+
+
+

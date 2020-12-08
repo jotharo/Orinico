@@ -45,7 +45,7 @@ const fetchTeddy = fetch (apiURL + id)
             return item.teddyId === selectedTeddy.teddyId && item.teddyColor === selectedTeddy.teddyColor
         })
 
-        // L'ours n'a pas été trouvé il faut l'ajouté a la liste
+        // L'ours n'a pas été trouvé il faut l'ajouter a la liste
         if (teddy == undefined) {
 
             cartTeddies.push(selectedTeddy)
@@ -53,7 +53,7 @@ const fetchTeddy = fetch (apiURL + id)
 
         }
 
-        // L'ours a été trouvé on met a jour ça quantité
+        // L'ours a été trouvé on met a jour sa quantité
         else {
             teddy.teddyQuantity++
         }
