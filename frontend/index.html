@@ -10,77 +10,91 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <title>Orinico</title>
 </head>
 
 <body>
-   <header>
+   <header> 
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-md navbar-light bg-ligh d-flex justify-content-around ">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light " style="background:transparent !important">
           <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
             <img class="logo" src="images/orinicologosm.png" alt="logo Orinoco"/>
           </a>
-          <div class="links">
-          <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
-            Notre histoire
-          </a>
-          <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
-            Méthodes
-          </a>
-          <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
-            Notre équipe
-          </a>
-        </div>
-        <div>
-          <a class="navbar-brand" href="panier.html" aria-label="Bouton accès panier" id="btn-panier"  >
-            <img class="cart" src="images/panierlogosm.png" alt="Panier"/> 
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNavBar"" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse a "  id="mainNavBar" >
+            <ul class="navbar-nav ">
+              <li class="nav-item active">            
+                <a class="nav-link " href="index.html" aria-label="Retour page Accueil"  >
+                Nos Ours
+                </a>
+              </li>
+              <li class="nav-item  ">            
+                <a class="nav-link " href="index.html" aria-label="Retour page Accueil"  >
+                Notre histoire
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html" aria-label="Retour page Accueil"  >
+                  La tradition Oriteddies
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html" aria-label="Retour page Accueil"  >
+                L'équipe
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a class="nav nav navbar-nav navbar-right"  href="panier.html" aria-label="Bouton accès panier" id="btn-panier"  style="text-decoration:none"  >
+            <img class="cart "  src="images/panierlogosm.png" alt="Panier"/> 
             <span id="totalQuantity"></span>
-          </a>
-        </div>
+          </a>     
       </nav>
       <!-- End Navbar -->
    </header>
-   <div class="products " id="products">
- 
-   </div>
 
+   <main>
+    <!-- Jumbotron -->
+    <div  style="background:transparent !important" class="jumbotron jumbotron-fluid mt-0 ">
+      <h1 class="display-3 text-center ">Bienvenue chez Oriteddies</h1>
+      <p class="lead text-center font-weight-light">Ours en peluche traditionnels faits main et personnalisables.
+      </p>
+    </div>
 
- 
-   
+    <!-- Affichage des Teddies -->
+    <div class="products " id="products">
+    </div>
+
+  </main>
+
     <!-- Footer -->
-    <footer class="page-footer font-small bg-dark ">
-      <!-- Footer Elements -->
-      <div class="container">
-        <!-- Grid row-->
-        <div class="row bg-dark ">
-          <!-- Grid column -->
-          <div class="col-md-12 py-5  position:center ">
-            <div class="d-flex justify-content-center">
-              <!-- Facebook -->
-              <a class="fb-ic">
-                <i class="fab fa-facebook-f fa-lg dark-text mr-md-5 mr-3 fa-2x"> </i>
-              </a>
-              <!--Linkedin -->
-              <a class="li-ic">
-                <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-              </a>
-              <!--Instagram-->
-              <a class="ins-ic">
-                <i class="fab fa-instagram fa-lg dark-text mr-md-5 mr-3 fa-2x"> </i>
-              </a>
-            </div>
+    <footer class="page-footer font-small bg-light ">
+        <!-- Liens réseaux sociaux -->
+        <div class="row">
+          <div class="col">
+              <ul class="list-inline text-center black">
+                  <li class="list-inline-item m-4"><a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                  </li>
+                  <li class="list-inline-item m-4"><a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                  </li>
+                  <li class="list-inline-item m-4"><a href="https://www.instagram.com" class="fa fa-instagram"></a>
+                  </li>
+              </ul>
           </div>
-          <!-- Grid column -->
-        </div>
-        <!-- Grid row-->
       </div>
-      <!-- Footer Elements -->
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">©Orinico 2020 Copyright:
+      <!-- Mentions légales et copyrights -->
+      <div class="row">
+          <div class="col">
+              <p class="text-center">Oriteddies | Mentions Légales | Contact <br> ©Orinico 2020 Copyright</p>
+          </div>
       </div>
-      <!-- Copyright -->
     </footer>
     <!-- Footer -->
 

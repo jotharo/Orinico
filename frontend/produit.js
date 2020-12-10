@@ -96,8 +96,8 @@ fetchTeddy.then(response => {
 
     // Création du Dropdown > Choix de la couleur du Teddy
     var label = document.createElement('label');
-    label.textContent = 'Personnalisez la couleur:';
-    label.for = 'Personnalisez la couleur de ' + teddy.name ;
+    label.textContent = 'Personnalisez la couleur de '+" "+ teddy.name+" ";
+    label.for = 'Personnalisez la couleur de ' + teddy.teddyName ;
 
     select = document.createElement('select');
     select.name = 'choixCouleur';
@@ -118,7 +118,8 @@ fetchTeddy.then(response => {
     // Bouton d'ajout du Teddy au Panier
     const btnPanier = document.createElement('button');
     btnPanier.id = "addCart"
-    btnPanier.textContent = "Ajoutez" + " " + teddy.name + " " + "au panier";
+    btnPanier.textContent = "Acheter";
+    btnPanier.setAttribute('class', 'btn btn-light');
 
 
     //Ecoute de l'évènement sur le bouton

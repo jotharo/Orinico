@@ -3,6 +3,10 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variable_overrides";
 
+ /////////////////// PAGE INDEX  ///////////////////
+
+// GENERAL 
+
 * {
     box-sizing: border-box
   }
@@ -14,11 +18,95 @@
     line-height: 1.6;
     color: #666;
     background: #F6F6F6;
+    height: 100%;
   }
+
+  // BARRE DE NAVIGATION
+  .navbar{
+
+    width: 75%;
+    margin : auto;
+    padding-top: 25px ;
+
+    a{
+      font-size: large;
+    }
+
+    // Bouton du panier + ItemCounter
+    #btn-panier :hover {
+      opacity: 0.5;
+    }
+
+    #totalQuantity{
+      color : rgb(150, 29, 248);
+      font-size: large;
+    }
+  
+  }
+  
+  // BARRE DE NAVIGATION RESPONSIVE
+
+@media screen and (max-width: 1050px){
+  .navbar {
+
+    a {
+      font-size:medium;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar {
+
+    .navbar-brand {
+      width : 70%;
+    }
+    
+    #btn-panier {
+      display:none;
+    }
+  }
+}
+
+  // JUMBOTRON
+
+  .jumbotron {
+    width: 60%;
+    margin : auto;
+    margin-bottom: 25px;
+
+    // Application du gradient sur le texte > Utilisé sur le reste du site pour le background des h1.
+    h1 {
+      background-image: none;
+      background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+      /* Set the background size and repeat properties. */
+      background-size: 100%;
+      background-repeat: repeat;
+      /* Use the text as a mask for the background. */
+      /* This will show the gradient as a text color rather than element bg. */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+    }
+
+    @media screen and (max-width: 600px)  {
+
+
+      h1 {
+        font-size: 2.5rem;
+      }
+     }
+  }
+
+ 
+
+  // AFFICHAGE DES CARTES/CARDS DE PRODUITS
   
   #products {
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 10rem;
   }
   
   h1 {
@@ -32,20 +120,16 @@
 
   h2 {
     text-align: right;
-    padding: 1.5rem 2.5rem;
-    background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+    padding: 0.5rem 1.5rem;
     margin: 0 0 0 0;
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1.2rem;
+    color: rgb(150, 29, 248);
   }
-  
-
 
   img {
     display: block;
     margin: none;
     max-width: 100%;
-    height: ;
   }
   
   p {
@@ -54,14 +138,15 @@
   }
 
   #link-product {
-    color : pink;
-  
+    color : rgb(90, 50, 117);
+    font-weight: 500;
     padding: 1rem;
   }
  
   .container {
     display: flex;
     flex-wrap: wrap;
+
   }
   
   .card {
@@ -71,13 +156,23 @@
     border-radius: 12px;
     overflow: hidden;
     transition: all .2s linear;
+
+    .imgWrapper {  // pour que toutes les images aient la même hauteur pour aligner tous les éléments de la Card
+      overflow: hidden;
+      height: 0;
+      padding-bottom: 60%;
+   }
+   .imgWrapper img {
+      max-width: 100%;
+   }
   }
   
   .card:hover {
     box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
     transform: translate3D(0, -2px, 0);
   }
-  
+
+  // CARTES/CARDS REPONSIVE
   @media screen and (min-width: 600px) {
     .card {
       flex: 1 1 calc(50% - 2rem);
@@ -90,6 +185,8 @@
     }
   }
   
+  // Différents background gradients pour les h1 > Permmetra un choix différent peu importe le nombre de produits renvoyés par le serveur
+
   .card:nth-child(2n) h1 {
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   }
@@ -100,4 +197,311 @@
   
   .card:nth-child(5n) h1 {
     background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+  }
+
+  
+  // FOOTER
+
+  footer {
+
+    
+  
+    // Liens réseaux sociaux 
+    .fa {
+      padding: 1rem;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .fa:hover {
+      opacity: 0.7;
+    }
+  }
+
+  /////////////////// PAGE PRODUIT  ///////////////////
+
+ #productTeddy {
+  padding-top: 3rem;
+
+  .card {
+    padding-bottom: 2rem;
+
+    p {
+      margin-left: 1rem;
+
+    }
+
+    label {
+      margin-left: 2rem;
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    select {
+      width: 150px;
+    }
+
+    .btn-light {
+      color: #212529;
+      background-color: rgba(250, 170, 230, 0.24); 
+      border-color: #c55fdf;
+    }
+
+    .btn-light:hover{
+      background-color: rgba(245, 9, 186, 0.52); 
+    }
+
+   
+    
+    #addCart{
+      margin-top: 2rem;
+      margin-left: 2rem;
+      width: 20%;
+    }
+
+  }
+
+ }
+ 
+  /////////////////// PAGE PANIER  ///////////////////
+  
+  // CART HEADER
+  .wrapper {
+    margin: 0 auto;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+.headingCart {
+
+  align-self: center;
+  justify-self: center;
+
+  // "Mon Panier"
+  h1 {
+    background-color: red;
+    /* Create the gradient. */
+    background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+    text-align: left;
+    border-bottom: 1px solid #D0D0D0;
+  }
+
+  // Labels
+  /*.cart-labels {
+  border-bottom: 1px solid #ccc;
+  margin-top: 1.625rem;
+ 
+    ul {
+      width: 80%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      .price{
+        text-align: center;
+      }
+    }
+
+    li {
+      text-align: center;
+      color: #111;
+      padding: 0.625rem 0;
+    }
+  }*/
+}
+
+// Affichage des produits sélectionnés
+
+#panierVide {
+  border : solid;
+  }
+
+#cartDisplay {
+  
+  width: 100% ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ 
+
+  #totalPrice {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    color :rgb(1, 0, 3);
+    text-align: center;
+  }
+
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px 150px 1fr 1fr 1fr;
+  margin-left : 40px;
+  margin-right: 40px;
+  margin-top : 1rem;
+  background-color: rgba(244, 218, 251, 0.249);
+  padding: 10px;
+
+
+   img {
+      border-radius: 5%;
+    }
+
+    h3 {
+    font-size: medium;
+    margin: 25px;
+    }
+
+    p {
+      margin: 20px;
+    }
+
+    #deleteCart {
+      margin: auto;
+      border : none;
+      background-color: white;
+      color : none;
+      width : 50px;
+      height: 50px;
+    }
+
+  }
+
+  // Bouton "Supprimer le panier"
+
+  .btn-danger {
+   
+  
+  }
+  #deleteAll {
+  
+      width: 300px;
+      border : none;
+      background-color: white;
+      color : black;
+  }
+
+
+
+  #deleteAll:hover {
+    color : red;
+    border : none;
+  }
+}
+
+
+// Formulaire
+#formInfos {  
+  .h2 {
+    font-size: 20px;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  
+  .wrapper{
+    margin : 0 auto;
+  }
+  
+  #cartDisplay{
+    .row{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width:20rem;
+      margin : 5px;
+      border-radius : 5px;
+      background-color: rgba(244, 218, 251, 0.249);
+      padding: 0px;
+    }
+    img {
+      margin-top:1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper{
+    margin : 0 auto;
+  }
+  
+  #cartDisplay{
+    .row{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width:20rem;
+      margin : 5px;
+      border-radius : 5px;
+      background-color: rgba(244, 218, 251, 0.249);
+      padding: 0px;
+    }
+    img {
+      margin-top:1rem;
+    }
+  }
+}
+
+
+
+  /////////////////// PAGE PRODUIT  ///////////////////
+  
+  
+  #recap {
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    width : 40%;
+    height: 550px;
+    margin-top : 25px;
+    margin-bottom : 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    transition: all .2s linear;
+
+
+    h2 {
+      background-image:linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+      font-size: xx-large;
+      color : rgba(224, 49, 255, 0.863);
+      margin : 0 0 0 0;
+      width: 100%;
+      padding : 5rem;
+    }
+
+    h3{
+      color : black;
+      margin : auto;
+    }
+
+    p {
+      color : black;
+      margin : auto;
+
+    }
+   
+  }
+  #recap:hover{
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
   }

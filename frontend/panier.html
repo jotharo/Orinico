@@ -7,46 +7,76 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <link rel="stylesheet" href="css/style.css" />
+        
     
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
         <title>Orinico</title>
     </head>
 <body>
     <header>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-md navbar-light bg-ligh d-flex justify-content-around ">
-            <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
-              <img class="logo" src="images/orinicologosm.png" alt="logo Orinoco"/>
-            </a>
-            <div class="links">
-            <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
+      <nav class="navbar navbar-expand-lg navbar-light bg-light " style="background:transparent !important">
+        <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
+          <img class="logo" src="images/orinicologosm.png" alt="logo Orinoco"/>
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNavBar"" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse a "  id="mainNavBar" >
+          <ul class="navbar-nav ">
+            <li class="nav-item active">            
+              <a class="nav-link " href="index.html" aria-label="Retour page Accueil"  >
+              Nos Ours
+              </a>
+            </li>
+            <li class="nav-item  ">            
+              <a class="nav-link " href="index.html" aria-label="Retour page Accueil"  >
               Notre histoire
-            </a>
-            <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
-              Méthodes
-            </a>
-            <a class="navbar-brand" href="index.html" aria-label="Retour page Accueil"  >
-              Notre équipe
-            </a>
-          </div>
-          <div>
-            <a class="navbar-brand" href="panier.html" aria-label="Bouton accès panier" id="btn-panier"  >
-              <img class="cart" src="images/panierlogosm.png" alt="Panier"/> 
-              <span id="totalQuantity"></span>
-            </a>
-          </div>
-        </nav>
-        <!-- End Navbar -->
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" aria-label="Retour page Accueil"  >
+                La tradition Oriteddies
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" aria-label="Retour page Accueil"  >
+              L'équipe
+              </a>
+            </li>
+          </ul>
+        </div>
+        <a class="nav nav navbar-nav navbar-right"  href="panier.html" aria-label="Bouton accès panier" id="btn-panier"  style="text-decoration:none"  >
+          <img class="cart "  src="images/panierlogosm.png" alt="Panier"/> 
+          <span id="totalQuantity"></span>
+        </a>     
+    </nav>
+    <!-- End Navbar -->
     </header>
 
-    <main>
-        <div id="cartDisplay"></div>
-
+    <main >
+        <div class="wrapper">
+          <div class="headingCart">
+            <h1> Mon panier </h1>
+           <!-- <div class="cart-labels row">
+              <ul>
+                <li class="item item-heading">Teddy</li>
+                <li class="price">Nom et couleur </li>
+                <li class="price">Prix</li>
+                <li class="quantity">Quantité</li>
+              </ul>
+          </div>-->
+         
+          <div id="cartDisplay"></div><!-- Affichage des produits -->
+        </div>
         <div id="formInfos"> <!-- Formulaire > caché lorsque panier vide cf : panier.js -->
           <div class="row text-black">
-            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-            <h1 class="display-4 py-2 text-truncate">Valider votre commande</h1>
+            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <h1 class="display-4 py-2 text-truncate">Valider votre panier </h1>
+            <h2 class="text-center"> Veuillez remplir tous les champs du formulaire et le valider afin de passer commande </h2>
               <div class="px-2">
                 <form>
                   <div class="form-row">
@@ -89,8 +119,31 @@
             </div>
           </div>
         </div><!-- End Formulaire -->
-
     </main>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-light ">
+      <!-- Liens réseaux sociaux -->
+      <div class="row">
+        <div class="col">
+            <ul class="list-inline text-center black">
+                <li class="list-inline-item m-4"><a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                </li>
+                <li class="list-inline-item m-4"><a href="https://www.twitter.com" class="fa fa-twitter"></a>
+                </li>
+                <li class="list-inline-item m-4"><a href="https://www.instagram.com" class="fa fa-instagram"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Mentions légales et copyrights -->
+    <div class="row">
+        <div class="col">
+            <p class="text-center">Oriteddies | Mentions Légales | Contact <br> ©Orinico 2020 Copyright</p>
+        </div>
+    </div>
+  </footer>
+  <!-- Footer -->
 
     <script src="countItem.js"></script>
 

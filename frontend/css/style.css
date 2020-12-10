@@ -10814,11 +10814,73 @@ html {
   line-height: 1.6;
   color: #666;
   background: #F6F6F6;
+  height: 100%;
+}
+
+.navbar {
+  width: 75%;
+  margin: auto;
+  padding-top: 25px;
+}
+
+.navbar a {
+  font-size: large;
+}
+
+.navbar #btn-panier :hover {
+  opacity: 0.5;
+}
+
+.navbar #totalQuantity {
+  color: #961df8;
+  font-size: large;
+}
+
+@media screen and (max-width: 1050px) {
+  .navbar a {
+    font-size: medium;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar .navbar-brand {
+    width: 70%;
+  }
+  .navbar #btn-panier {
+    display: none;
+  }
+}
+
+.jumbotron {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.jumbotron h1 {
+  background-image: none;
+  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+  .jumbotron h1 {
+    font-size: 2.5rem;
+  }
 }
 
 #products {
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 10rem;
 }
 
 h1 {
@@ -10832,11 +10894,10 @@ h1 {
 
 h2 {
   text-align: right;
-  padding: 1.5rem 2.5rem;
-  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  padding: 0.5rem 1.5rem;
   margin: 0 0 0 0;
-  font-size: 1.5rem;
-  color: white;
+  font-size: 1.2rem;
+  color: #961df8;
 }
 
 img {
@@ -10851,7 +10912,8 @@ p {
 }
 
 #link-product {
-  color: pink;
+  color: #5a3275;
+  font-weight: 500;
   padding: 1rem;
 }
 
@@ -10872,6 +10934,16 @@ p {
   overflow: hidden;
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
+}
+
+.card .imgWrapper {
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+.card .imgWrapper img {
+  max-width: 100%;
 }
 
 .card:hover {
@@ -10907,5 +10979,297 @@ p {
 
 .card:nth-child(5n) h1 {
   background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+}
+
+footer .fa {
+  padding: 1rem;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+footer .fa:hover {
+  opacity: 0.7;
+}
+
+#productTeddy {
+  padding-top: 3rem;
+}
+
+#productTeddy .card {
+  padding-bottom: 2rem;
+}
+
+#productTeddy .card p {
+  margin-left: 1rem;
+}
+
+#productTeddy .card label {
+  margin-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#productTeddy .card select {
+  width: 150px;
+}
+
+#productTeddy .card .btn-light {
+  color: #212529;
+  background-color: rgba(250, 170, 230, 0.24);
+  border-color: #c55fdf;
+}
+
+#productTeddy .card .btn-light:hover {
+  background-color: rgba(245, 9, 186, 0.52);
+}
+
+#productTeddy .card #addCart {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  width: 20%;
+}
+
+.wrapper {
+  margin: 0 auto;
+  background-color: #ffffff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headingCart {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  /*.cart-labels {
+  border-bottom: 1px solid #ccc;
+  margin-top: 1.625rem;
+ 
+    ul {
+      width: 80%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      .price{
+        text-align: center;
+      }
+    }
+
+    li {
+      text-align: center;
+      color: #111;
+      padding: 0.625rem 0;
+    }
+  }*/
+}
+
+.headingCart h1 {
+  background-color: red;
+  /* Create the gradient. */
+  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  font-size: 40px;
+  text-align: left;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+#panierVide {
+  border: solid;
+}
+
+#cartDisplay {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cartDisplay #totalPrice {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  color: #010003;
+  text-align: center;
+}
+
+#cartDisplay .row {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 150px 1fr 1fr 1fr;
+      grid-template-columns: 200px 150px 1fr 1fr 1fr;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 1rem;
+  background-color: rgba(244, 218, 251, 0.249);
+  padding: 10px;
+}
+
+#cartDisplay .row img {
+  border-radius: 5%;
+}
+
+#cartDisplay .row h3 {
+  font-size: medium;
+  margin: 25px;
+}
+
+#cartDisplay .row p {
+  margin: 20px;
+}
+
+#cartDisplay .row #deleteCart {
+  margin: auto;
+  border: none;
+  background-color: white;
+  color: none;
+  width: 50px;
+  height: 50px;
+}
+
+#cartDisplay #deleteAll {
+  width: 300px;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+#cartDisplay #deleteAll:hover {
+  color: red;
+  border: none;
+}
+
+#formInfos .h2 {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    margin: 0 auto;
+  }
+  #cartDisplay .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 20rem;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgba(244, 218, 251, 0.249);
+    padding: 0px;
+  }
+  #cartDisplay img {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    margin: 0 auto;
+  }
+  #cartDisplay .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 20rem;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgba(244, 218, 251, 0.249);
+    padding: 0px;
+  }
+  #cartDisplay img {
+    margin-top: 1rem;
+  }
+}
+
+#recap {
+  -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  height: 550px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 12px;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+#recap h2 {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  font-size: xx-large;
+  color: rgba(224, 49, 255, 0.863);
+  margin: 0 0 0 0;
+  width: 100%;
+  padding: 5rem;
+}
+
+#recap h3 {
+  color: black;
+  margin: auto;
+}
+
+#recap p {
+  color: black;
+  margin: auto;
+}
+
+#recap:hover {
+  -webkit-box-shadow: 2px 8px 45px rgba(0, 0, 0, 0.15);
+          box-shadow: 2px 8px 45px rgba(0, 0, 0, 0.15);
+  -webkit-transform: translate3D(0, -2px, 0);
+          transform: translate3D(0, -2px, 0);
 }
 /*# sourceMappingURL=style.css.map */

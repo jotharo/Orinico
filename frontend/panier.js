@@ -25,9 +25,13 @@ showMyForm()
 //Etape IF -Si le panier est vide > On affiche " Votre panier est vide "
 if (cartTeddies == undefined || cartTeddies.length === 0) {
     var div = document.createElement('div');
-    div.textContent = " Votre panier est vide !";
+    div.setAttribute('id','panierVide')
 
-    container.appendChild(div);  
+    var panierVide = document.createElement('h1');
+    panierVide.textContent = " Votre panier est vide !";
+
+    container.appendChild(div); 
+    div.appendChild(panierVide) 
 
     
 //Etape ELSE -Si le panier contient au moins un produit > On récupère les produits > Affichage des détails
@@ -37,17 +41,21 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
 
     // Création du bouton supprimer la totalité du panier d'un click
     const btnDeleteAll = document.createElement('button');
-    btnDeleteAll.id = "deleteCart"
-    btnDeleteAll.textContent = "Supprimer";
+    btnDeleteAll.setAttribute('class', 'btn btn-danger');
+    btnDeleteAll.id = "deleteAll"
+    btnDeleteAll.textContent = "Supprimer le panier ?";
 
 
     // Création de la fonction pour supprimer la totalité du panier d'un click
 
     function deleteCart(event) {
         event.preventDefault();
-        localStorage.clear()    
-        alert('Votre panier est vide !')
-        location.reload();
+        var result = confirm("Êtes-vous sûre de vouloir supprimer la totalité du panier ?");
+            if (result) {
+                localStorage.clear()    
+                alert('Votre panier est vide !')
+                location.reload();
+            }
     }// Fin de la fonction deleteCart
 
     btnDeleteAll.addEventListener("click", deleteCart)
@@ -68,10 +76,11 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
     console.log(sum);
 
     const totalPrice = document.createElement('p');
-    totalPrice.textContent = "Prix total : " + sum + "$";
+    totalPrice.setAttribute('id', 'totalPrice');
+    totalPrice.textContent = "Total avant frais de port : " + sum + " " + "$";
 
     // Création HTML de la div totalPrice
-    app.appendChild(totalPrice);
+    //app.appendChild(totalPrice);
 
 
     //AFFICHAGE DU CONTENU DU PANIER
@@ -81,25 +90,37 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
 
             const totalTeddy = cartTeddy.teddyPrice * cartTeddy.teddyQuantity;
 
-            let ligneProduit = document.createElement('div');
-            ligneProduit.setAttribute('class', 'card');
+            var ligneProduit = document.createElement('div');
+            ligneProduit.setAttribute('class', 'row');
         
             var img = document.createElement('img');
+            img.style.height ="100px"
+            img.style.width ="150px"
             img.alt = "Photo du nounours" + cartTeddy.teddyName;
             img.src = cartTeddy.teddyImage;
         
-            var h1 = document.createElement('h1');
-            h1.textContent = cartTeddy.teddyName +" "+ cartTeddy.teddyColor;
+            var nomTeddy = document.createElement('h3');
+            nomTeddy.textContent = cartTeddy.teddyName +" "+ cartTeddy.teddyColor;
         
             var p = document.createElement('p');
             p.textContent = `${totalTeddy}`+' '+'$';
+
+            var cartQuantity = document.createElement('p');
+            cartQuantity.setAttribute('id', 'quantity');
+            cartQuantity.textContent = 'x' + `${cartTeddy.teddyQuantity}`;
 
             //BOUTON DELETE > Supprimer un/1 objet
 
             // Création du bouton Supprimer rattaché à sa ligne produit
             const btnDelete = document.createElement('button');
-            btnDelete.id = "deleteCart"
-            btnDelete.textContent = "Supprimer";
+            btnDelete.id = "deleteCart";
+            
+            const trashCan = document.createElement('span');
+            trashCan.setAttribute('class', 'material-icons', );
+            trashCan.innerHTML = "delete_outline";
+            
+
+
 
             // Création de la fonction de suppression d'item > Active à l'écoute du click du bouton btnDelete
             function deleteItem(event) {
@@ -125,11 +146,14 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
             
             // Affichage html du contenu du panier créé précedemment
 
-            container.appendChild(ligneProduit);  
+            container.appendChild(ligneProduit);
+            container.appendChild(totalPrice);  
             ligneProduit.appendChild(img);                   
-            ligneProduit.appendChild(h1);         
+            ligneProduit.appendChild(nomTeddy);         
             ligneProduit.appendChild(p);
+            ligneProduit.appendChild(cartQuantity);
             ligneProduit.appendChild(btnDelete);
+            btnDelete.appendChild(trashCan)
             
     })// Fin de l'affichage du contenu du panier
 } // Fin de la boucle else et de la partie 1 Affichage du panier
@@ -162,10 +186,6 @@ function showMyForm() {
 
 function sendData() {
 
-    // Envoi du totalPrice au localStorage
-    localStorage.setItem('totalPrice', totalPrice)
-    const storagePrice = localStorage.getItem('totalPrice')
-
     // Récupération des informations client rentrées dans le formulaire
     // Variable - Stockage des informations client dans une variable "contact"
 
@@ -192,7 +212,6 @@ function sendData() {
     const objet = {
     contact,
     products,
-    sum,
     };
 
     // ENVOI de l'objet à l'API
@@ -203,13 +222,18 @@ function sendData() {
         headers: {"Content-type": "application/json"}// Adding headers to the request 
     })
     .then(res => res.json()) // Converting to JSON
-    .then(
-        json => console.log(json),
-        localStorage.setItem('Order', objet.orderId),
-        console.log(objet.orderId),
-        //window.location = 'confirmation.html',
-        )
+    .then( r => {
+        sessionStorage.setItem('contact', JSON.stringify(r.contact));
+        sessionStorage.setItem('orderId', JSON.stringify(r.orderId));
+        sessionStorage.setItem('totalPrice', JSON.stringify(sum));
+        //sessionStorage.removeItem('anyItem');
+        //window.location.replace("./confirmation.html");
+    })
     .catch(err => console.log(err))
+
+   //message de confirmation
+   //window.location = 'confirmation.html',
+
 }// Fin de la fonction sendData
 
 
