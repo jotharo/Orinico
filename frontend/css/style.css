@@ -10897,7 +10897,7 @@ h2 {
   padding: 0.5rem 1.5rem;
   margin: 0 0 0 0;
   font-size: 1.2rem;
-  color: #961df8;
+  color: black;
 }
 
 img {
@@ -11056,29 +11056,6 @@ footer .fa:hover {
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
-  /*.cart-labels {
-  border-bottom: 1px solid #ccc;
-  margin-top: 1.625rem;
- 
-    ul {
-      width: 80%;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-
-      .price{
-        text-align: center;
-      }
-    }
-
-    li {
-      text-align: center;
-      color: #111;
-      padding: 0.625rem 0;
-    }
-  }*/
 }
 
 .headingCart h1 {
@@ -11100,7 +11077,9 @@ footer .fa:hover {
 }
 
 #panierVide {
-  border: solid;
+  margin: 10rem;
+  padding: 5rem;
+  width: 100%;
 }
 
 #cartDisplay {
@@ -11168,15 +11147,80 @@ footer .fa:hover {
 }
 
 #cartDisplay #deleteAll:hover {
-  color: red;
+  color: #a606f0;
   border: none;
 }
 
-#formInfos .h2 {
+#formInfos h1 {
+  background-image: none;
+  color: black;
+}
+
+#formInfos h2 {
   font-size: 20px;
+  color: black;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+#formInfos .btn {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 600px) {
+  #cartDisplay .container {
+    max-width: 600px;
+    margin-top: 2rem;
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #cartDisplay .container .row {
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #cartDisplay .container .row img {
+    margin: auto;
+    padding-top: 1rem;
+  }
+  #cartDisplay .container .row h3 {
+    color: black;
+    margin: auto;
+  }
+  #cartDisplay .container .row p {
+    margin: auto;
+  }
+  #cartDisplay .container .row button {
+    margin: auto;
+  }
+  #formInfos {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+  }
+  #formInfos h1 {
+    font-size: xx-large;
+  }
+  #formInfos h2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) and (max-width: 900px) {
   .wrapper {
     margin: 0 auto;
   }
@@ -11200,76 +11244,5 @@ footer .fa:hover {
   #cartDisplay img {
     margin-top: 1rem;
   }
-}
-
-@media screen and (max-width: 900px) {
-  .wrapper {
-    margin: 0 auto;
-  }
-  #cartDisplay .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 20rem;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgba(244, 218, 251, 0.249);
-    padding: 0px;
-  }
-  #cartDisplay img {
-    margin-top: 1rem;
-  }
-}
-
-#recap {
-  -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
-          box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
-  width: 40%;
-  height: 550px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border-radius: 12px;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
-}
-
-#recap h2 {
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  font-size: xx-large;
-  color: rgba(224, 49, 255, 0.863);
-  margin: 0 0 0 0;
-  width: 100%;
-  padding: 5rem;
-}
-
-#recap h3 {
-  color: black;
-  margin: auto;
-}
-
-#recap p {
-  color: black;
-  margin: auto;
-}
-
-#recap:hover {
-  -webkit-box-shadow: 2px 8px 45px rgba(0, 0, 0, 0.15);
-          box-shadow: 2px 8px 45px rgba(0, 0, 0, 0.15);
-  -webkit-transform: translate3D(0, -2px, 0);
-          transform: translate3D(0, -2px, 0);
 }
 /*# sourceMappingURL=style.css.map */

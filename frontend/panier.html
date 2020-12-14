@@ -32,11 +32,6 @@
               Nos Ours
               </a>
             </li>
-            <li class="nav-item  ">            
-              <a class="nav-link " href="index.html" aria-label="Retour page Accueil"  >
-              Notre histoire
-              </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html" aria-label="Retour page Accueil"  >
                 La tradition Oriteddies
@@ -45,6 +40,11 @@
             <li class="nav-item">
               <a class="nav-link" href="index.html" aria-label="Retour page Accueil"  >
               L'équipe
+              </a>
+            </li>
+            <li class="nav-item  ">            
+              <a class="nav-link " href="panier.html" aria-label="Retour page Accueil"  >
+              Votre panier
               </a>
             </li>
           </ul>
@@ -74,8 +74,9 @@
         </div>
         <div id="formInfos"> <!-- Formulaire > caché lorsque panier vide cf : panier.js -->
           <div class="row text-black">
-            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-            <h1 class="display-4 py-2 text-truncate">Valider votre panier </h1>
+            <div class="col-xl-6 col-lg-8 col-md-8 col-sm-8 
+            col-xs-8 mx-auto text-center form p-4">
+            <h1 class="display-4 py-2 ">Formulaire de commande </h1>
             <h2 class="text-center"> Veuillez remplir tous les champs du formulaire et le valider afin de passer commande </h2>
               <div class="px-2">
                 <form>
@@ -83,35 +84,35 @@
                     <div class="col">
                       <div class="form-group">
                         <label for="formPrenom">Prénom</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Prénom" >
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Prénom" required>
                       </div>                     </div>
                     <div class="col">
                       <div class="form-group">
                         <label for="formNom">Nom</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom" >
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom" required>
                       </div>                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Adresse</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Adresse" >
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Adresse"required >
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
                         <label for="exampleInputPassword1">Code Postal</label>
-                        <input type="codePostal" class="form-control" id="postalCode" name="postalCode"  placeholder="Code Postal" >
+                        <input type="codePostal" class="form-control" id="postalCode" name="postalCode"  placeholder="Code Postal" required>
                       </div>                      </div>
                     <div class="col">
                       <div class="form-group">
                         <label for="exampleInputPassword1">Ville</label>
-                        <input type="text" class="form-control" id="city" name="city" placeholder="Ville" >
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Ville"  required>
                       </div>                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="email">Adresse mail</label>
-                    <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="Votre email" >
+                    <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="Votre email" required >
                   </div>
                     <button type="submit" class="btn btn-primary">Je valide ma commande</button>
                 </form>

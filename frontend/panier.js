@@ -27,7 +27,7 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
     var div = document.createElement('div');
     div.setAttribute('id','panierVide')
 
-    var panierVide = document.createElement('h1');
+    var panierVide = document.createElement('h2');
     panierVide.textContent = " Votre panier est vide !";
 
     container.appendChild(div); 
@@ -226,13 +226,13 @@ function sendData() {
         sessionStorage.setItem('contact', JSON.stringify(r.contact));
         sessionStorage.setItem('orderId', JSON.stringify(r.orderId));
         sessionStorage.setItem('totalPrice', JSON.stringify(sum));
-        //sessionStorage.removeItem('anyItem');
-        //window.location.replace("./confirmation.html");
+        //Redirection vers Accueil
+        window.location.href = "confirmation.html";
+        // Efface localStorage
+        localStorage.clear()
+      
     })
     .catch(err => console.log(err))
-
-   //message de confirmation
-   //window.location = 'confirmation.html',
 
 }// Fin de la fonction sendData
 

@@ -13,20 +13,22 @@ let totalPrice = sessionStorage.getItem('totalPrice')
 const contact = JSON.parse(sessionStorage.getItem("contact"));
 
 
+
+
 // AFFICHAGE DU RECAPITULATIF > Order ID + total du prix
 
 // Création de la zone de récupération des données
 
-const app = document.getElementById('main');
+const app = document.getElementById('confirmation');
 
 const container = document.createElement('div');
-container.setAttribute('class', 'container', );
+container.setAttribute('class', 'jumbotron');
 container.setAttribute('id', 'recap', );
 
 app.appendChild(container);
 
 // Affichage des données
-const merci = document.createElement('h2');
+const merci = document.createElement('h1');
 merci.textContent = 'Merci pour votre confiance '+ `${contact.firstName}` + " " +"!";
 
 const h3 = document.createElement('h3');
@@ -37,6 +39,8 @@ order.textContent = 'Numméro de commande : '+ orderId;
 
 const total = document.createElement('p');
 total.textContent = 'Total de votre commande : '+ totalPrice + '$';
+
+
 
 // Mise en page des éléments
 

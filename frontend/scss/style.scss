@@ -3,7 +3,6 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variable_overrides";
 
- /////////////////// PAGE INDEX  ///////////////////
 
 // GENERAL 
 
@@ -20,6 +19,8 @@
     background: #F6F6F6;
     height: 100%;
   }
+
+ /////////////////// PAGE INDEX  ///////////////////
 
   // BARRE DE NAVIGATION
   .navbar{
@@ -123,7 +124,7 @@
     padding: 0.5rem 1.5rem;
     margin: 0 0 0 0;
     font-size: 1.2rem;
-    color: rgb(150, 29, 248);
+    color: rgb(0, 0, 0);
   }
 
   img {
@@ -302,37 +303,14 @@
     text-align: left;
     border-bottom: 1px solid #D0D0D0;
   }
-
-  // Labels
-  /*.cart-labels {
-  border-bottom: 1px solid #ccc;
-  margin-top: 1.625rem;
- 
-    ul {
-      width: 80%;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-
-      .price{
-        text-align: center;
-      }
-    }
-
-    li {
-      text-align: center;
-      color: #111;
-      padding: 0.625rem 0;
-    }
-  }*/
 }
 
 // Affichage des produits sélectionnés
 
 #panierVide {
-  border : solid;
+  margin : 10rem;
+  padding: 5rem;
+  width: 100%;
   }
 
 #cartDisplay {
@@ -389,10 +367,7 @@
 
   // Bouton "Supprimer le panier"
 
-  .btn-danger {
-   
   
-  }
   #deleteAll {
   
       width: 300px;
@@ -404,41 +379,88 @@
 
 
   #deleteAll:hover {
-    color : red;
+    color : rgb(166, 6, 240);
     border : none;
   }
 }
 
 
 // Formulaire
-#formInfos {  
-  .h2 {
+#formInfos { 
+  
+  h1 {
+    background-image: none;
+    color : black;
+  }
+
+  h2 {
     font-size: 20px;
+    color : black;
+    font-weight : 400;
+     margin-bottom: 2rem; 
+  }
+
+  .btn {
+    margin-top :1rem;
+    margin-bottom :2rem;
   }
   
 }
 
 @media screen and (max-width: 600px) {
   
-  .wrapper{
-    margin : 0 auto;
-  }
+ 
   
   #cartDisplay{
-    .row{
+
+    .container {
+      max-width: 600px;
+      margin-top :2rem;
+      width: 90%;
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      width:20rem;
-      margin : 5px;
-      border-radius : 5px;
-      background-color: rgba(244, 218, 251, 0.249);
-      padding: 0px;
-    }
+    
+    .row {
+      margin : auto;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+
     img {
-      margin-top:1rem;
+      margin: auto;
+      padding-top: 1rem;
+    }
+
+    h3 {
+      color: rgb(0, 0, 0);
+      margin: auto;
+    }
+
+    p {
+      margin: auto;
+    }
+
+    button {
+      margin: auto;
+
     }
   }
+    }
+   
+  }
+
+  #formInfos { 
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+  
+    h1 {
+      font-size: xx-large;
+    }
+
+    h2{
+      font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -464,44 +486,5 @@
 }
 
 
-
-  /////////////////// PAGE PRODUIT  ///////////////////
-  
-  
-  #recap {
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-    width : 40%;
-    height: 550px;
-    margin-top : 25px;
-    margin-bottom : 25px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    transition: all .2s linear;
-
-
-    h2 {
-      background-image:linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-      font-size: xx-large;
-      color : rgba(224, 49, 255, 0.863);
-      margin : 0 0 0 0;
-      width: 100%;
-      padding : 5rem;
-    }
-
-    h3{
-      color : black;
-      margin : auto;
-    }
-
-    p {
-      color : black;
-      margin : auto;
-
-    }
-   
-  }
-  #recap:hover{
-    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
-    transform: translate3D(0, -2px, 0);
-  }
+}
+  /////////////////// PAGE CONFIRMATION  ///////////////////
