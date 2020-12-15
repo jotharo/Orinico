@@ -68,7 +68,6 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
     // Variable où l'on va stocker le prix total 
     var sum = null;   
   
-    // The JavaScript Array.prototype specifies a built-in method called
     cartTeddies.forEach(function(value){
     sum += value.teddyQuantity*value.teddyPrice;
     });
@@ -158,14 +157,6 @@ if (cartTeddies == undefined || cartTeddies.length === 0) {
     })// Fin de l'affichage du contenu du panier
 } // Fin de la boucle else et de la partie 1 Affichage du panier
 
-//Valider panier et apparition/affichage du formulaire ? Si possible, sinon tout sur la même page 
-  // 1 - si panier vide : message d'alerte votre panier est vide
-  // 2 - si panier ok : message de confirmation : veuillez remplir le form suivant ?
-
-  // Création de la fonction confirmCart > Qui cache le contenu du panier et fait apparaitre le formulaire
-
- 
-
 
 // 2 - FORMULAIRE DE COMMANDE
 
@@ -217,11 +208,11 @@ function sendData() {
     // ENVOI de l'objet à l'API
 
       fetch('http://localhost:3000/api/teddies/order', {
-        method: "POST",// Adding method type 
-        body: JSON.stringify(objet),// Adding body or contents to send 
-        headers: {"Content-type": "application/json"}// Adding headers to the request 
+        method: "POST",
+        body: JSON.stringify(objet),
+        headers: {"Content-type": "application/json"}/
     })
-    .then(res => res.json()) // Converting to JSON
+    .then(res => res.json()) 
     .then( r => {
         sessionStorage.setItem('contact', JSON.stringify(r.contact));
         sessionStorage.setItem('orderId', JSON.stringify(r.orderId));
